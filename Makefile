@@ -1,9 +1,9 @@
 # Compiler/Assembler/Linker flags
-CC = x86_64-elf-gcc
+CC = i686-elf-gcc
 CFLAGS = -ffreestanding -O2 -Wall -Wextra -std=gnu99
 ASM = nasm
-ASMFLAGS = -f elf64
-LD = x86_64-elf-gcc
+ASMFLAGS = -f elf32
+LD = i686-elf-gcc
 LDFLAGS = -ffreestanding -O2 -nostdlib -lgcc
 
 # Source files
@@ -27,7 +27,7 @@ $(KERNEL): $(OBJECTS)
 	$(ASM) $(ASMFLAGS) $< -o $@
 
 run: $(KERNEL)
-	qemu-system-x86_64 -kernel $(KERNEL)
+	qemu-system-i386 -kernel $(KERNEL)
 
 clean:
 	rm -f src/*.o $(KERNEL) $(ISO)
