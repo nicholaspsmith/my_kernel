@@ -3,7 +3,7 @@
 // VGA text mode buffer address
 volatile uint16_t* vga_buffer = (uint16_t*)0xB8000;
 // VGA colors
-enum vga_colors {
+enum vga_color {
     BLACK,
     BLUE,
     GREEN,
@@ -35,20 +35,19 @@ void kernel_main() {
     for (int i = 0; i < 80 * 25; i++) {
         vga_buffer[i] = vga_entry(' ', WHITE, BLACK);
     }
-
+    
     // Display "Hello, Kernel World!"
-    const char* str = "Hello, Kernel, World!";
+    const char* str = "Hello, Kernel World!";
     int i = 0;
     int position = 80 * 10 + 30; // Middle of the screen
-
+    
     while (str[i] != '\0') {
         vga_buffer[position + i] = vga_entry(str[i], LIGHT_GREEN, BLACK);
         i++;
     }
-
+    
     // Halt the CPU
     while (1) {
         asm volatile("hlt");
     }
 }
-
