@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/nicholassmith/Code/hello_kernel/src",
+      "program": "/Users/nicholassmith/Code/hello_kernel/src/build/Debug/outDebug"
+    }
+  ]
+}
