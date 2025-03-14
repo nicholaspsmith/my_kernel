@@ -36,10 +36,10 @@ void kernel_main() {
         vga_buffer[i] = vga_entry(' ', WHITE, BLACK);
     }
     
-    // Display "Hello, Kernel World!"
-    const char* str = "Hello, Kernel World!";
+    // Display "Hello, 32 bit Kernel World!"
+    const char* str = "Hello, 32 bit Kernel World!";
     int i = 0;
-    int position = 80 * 10 + 30; // Middle of the screen
+    int position = 80 * 10 + 25; // Middle of the screen
     
     while (str[i] != '\0') {
         vga_buffer[position + i] = vga_entry(str[i], LIGHT_GREEN, BLACK);
@@ -48,6 +48,6 @@ void kernel_main() {
     
     // Halt the CPU
     while (1) {
-        asm volatile("hlt");
+        __asm__ volatile("hlt");
     }
 }

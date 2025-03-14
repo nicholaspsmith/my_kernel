@@ -1,5 +1,4 @@
 ; Multiboot header constants
-; nick smith 3-13-2025 ~10pm EST
 MBALIGN     equ 1<<0
 MEMINFO     equ 1<<1
 FLAGS       equ MBALIGN | MEMINFO
